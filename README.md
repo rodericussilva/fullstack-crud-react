@@ -1,70 +1,137 @@
-# Getting Started with Create React App
+# Aplicação CRUD Fullstack
+Esta é uma aplicação CRUD (Create, Read, Update, Delete) fullstack construída com React, Axios, Toastify, Express e MySQL. A aplicação permite cadastrar, deletar, atualizar e exibir informações de usuários, incluindo nome, email, telefone e data de nascimento.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Índice
 
-## Available Scripts
+- [Recursos](#recursos)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Instalação](#instalação)
+- [Uso](#uso)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Contribuindo](#contribuindo)
+- [Licença](#licença)
 
-In the project directory, you can run:
+## Recursos
 
-### `npm start`
+- **Create**: Cadastrar novos usuários com nome, email, telefone e data de nascimento.
+- **Read**: Exibir uma lista de usuários cadastrados.
+- **Update**: Editar informações de usuários.
+- **Delete**: Remover usuários do banco de dados.
+- **Notificações**: Exibir mensagens de sucesso e erro usando Toastify.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tecnologias Utilizadas
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Frontend**:
+  - React
+  - Axios
+  - Toastify
+  - Styled Components
 
-### `npm test`
+- **Backend**:
+  - Express
+  - MySQL
+  - Nodemon (para desenvolvimento)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Instalação
 
-### `npm run build`
+### Pré-requisitos
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Node.js (v14 ou posterior)
+- Servidor MySQL
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Configuração do Backend
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone o repositório:
 
-### `npm run eject`
+   ```bash
+   git clone [https://github.com/seu-usuario/seu-repo.git](https://github.com/rodericussilva/fullstack-crud-react.git)
+   cd crud
+    ```
+2. Navegue até o diretório backend:
+   ```bash
+   cd api
+   ```
+3. Instale as dependências do backend:
+   ```bash
+   yarn stall
+   ```
+4. Configure seu banco de dados MySQL:
+- Crie um novo banco de dados MySQL.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Execute o seguinte script SQL para criar a tabela usuarios:
+  ```sql
+  CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  phone VARCHAR(20),
+  date_born DATE
+); ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+5. Inicie o servidor backend:
+   ```bash
+   yarn start
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Configuração do Frontend
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Navegue até o diretório `frontend`:
+   ```bash
+   cd frontend
+   ```
 
-## Learn More
+2. Instale as dependências do frontend:
+   ```bash
+   yarn install
+   ```
+3. Incie o servidor frontend:
+    ```bash
+    yarn start
+    ```
+A aplicação deve estar rodando em `http://localhost:3000` para o frontend e `http://localhost:8800` para o backend.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Uso
+- Abra seu navegador e navegue até http://localhost:3000.
+- Use o formulário para cadastrar novos usuários.
+- Veja a lista de usuários cadastrados.
+- Use o botão de editar para atualizar as informações dos usuários.
+- Use o botão de deletar para remover usuários da lista.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Estrutura do Projeto
+```plaintext
+crud/
+├── api/
+│   ├── controllers/
+│   │   └── user.js
+│   ├── routes/
+│   │   └── users.js
+│   ├── db.js
+│   └── index.js
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Form.js
+│   │   │   ├── Grid.js
+│   │   ├── styles/
+│   │   │   └── global.js
+│   │   ├── App.js
+│   │   ├── index.js
+|   |   ├── reporWebVitals.js
+|   |   └── setupTests.js
+│   └── public/
+│       └── index.html
+└── README.md
+```
 
-### Code Splitting
+## Contribuindo
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Contribuições são bem-vindas! Por favor, abra uma issue ou envie um pull request para quaisquer mudanças.
 
-### Analyzing the Bundle Size
+## Licença
+Este projeto está licenciado sob a Licença MIT. Veja o arquivo [LICENSE](./LICENSE) para mais detalhes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Autor
 
-### Making a Progressive Web App
+### Rodrigo Silva
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Se você tiver alguma dúvida ou sugestão, sinta-se à vontade para entrar em contato comigo em rodericus@alu.ufc.br
